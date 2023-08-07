@@ -1,12 +1,12 @@
 n = int(input())
 print(2**n - 1)
 
-def solve(n, initial, middle, final):
-    if n == 1:
-        print(initial, " ", final)
-    else:
-        solve(n-1, initial, final, middle)
-        print(initial," ",final )
-        solve(n-1, middle, initial, final)   
 
-solve(n, 1, 2, 3)
+def solve(start, aux, end, k):
+    if k > n:
+        return
+    solve(start, end, aux, k + 1)
+    print(f"{start} {end}")
+    solve(aux, start, end, k + 1)
+
+solve(1, 2, 3, 1)
